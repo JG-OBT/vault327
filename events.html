@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact & Bookings — The Vault 327, Crowthorne</title>
+  <meta name="description" content="Book a table at The Vault 327, Crowthorne. Call 01344 674106 or use our online booking form. 19 High Street, Crowthorne, Berkshire RG45 7AD.">
+  <link rel="icon" type="image/svg+xml" href="public/favicon.svg">
+  <link rel="stylesheet" href="public/style.css">
+  <style>
+    .contact-hero {
+      background: var(--void);
+      min-height: 45vh;
+      display: flex;
+      align-items: flex-end;
+      padding: 8rem 3rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-hero::after {
+      content: 'CONTACT';
+      position: absolute;
+      right: -1rem; top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--font-display);
+      font-size: 16vw;
+      font-weight: 300;
+      color: var(--gold);
+      opacity: 0.025;
+      letter-spacing: -0.05em;
+      pointer-events: none;
+    }
+    .contact-hero-content { position: relative; z-index: 1; }
+
+    /* Two col layout */
+    .contact-main {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 70vh;
+    }
+    .contact-form-col {
+      background: var(--obsidian);
+      padding: 5rem 4rem;
+      border-right: 1px solid var(--border);
+    }
+    .contact-info-col {
+      background: var(--charcoal);
+      padding: 5rem 4rem;
+    }
+
+    /* Form */
+    .form-group { margin-bottom: 2rem; }
+    .form-group label {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.6rem;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--cream);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      padding: 0.9rem 1rem;
+      outline: none;
+      transition: border-color 0.3s;
+      -webkit-appearance: none;
+      appearance: none;
+      border-radius: 0;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: var(--muted); }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--gold); }
+    .form-group textarea { min-height: 120px; resize: vertical; }
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath fill='%23c9a84c' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      background-size: 10px;
+      background-color: var(--charcoal);
+    }
+    .form-group select option { background: var(--charcoal); color: var(--cream); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .form-note { font-size: 0.78rem; color: var(--cream); opacity: 0.4; margin-top: 0.4rem; line-height: 1.5; }
+
+    .form-submit {
+      width: 100%;
+      background: var(--gold);
+      color: var(--obsidian);
+      border: none;
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      padding: 1.1rem;
+      cursor: none;
+      transition: background 0.3s;
+      margin-top: 0.5rem;
+    }
+    .form-submit:hover { background: var(--gold-light); }
+
+    .form-success {
+      display: none;
+      padding: 2rem;
+      border: 1px solid var(--gold-dim);
+      background: rgba(201,168,76,0.05);
+      text-align: center;
+    }
+    .form-success.show { display: block; }
+    .form-success h3 { font-style: italic; color: var(--gold); margin-bottom: 0.5rem; }
+    .form-success p { font-size: 0.88rem; opacity: 0.7; }
+
+    /* Info section */
+    .info-block { margin-bottom: 3rem; }
+    .info-block-title {
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .info-block p { font-size: 0.9rem; color: var(--cream); opacity: 0.7; line-height: 1.8; }
+    .info-block a { color: var(--cream); text-decoration: none; opacity: 0.7; transition: color 0.3s, opacity 0.3s; }
+    .info-block a:hover { color: var(--gold-light); opacity: 1; }
+
+    /* Map embed area */
+    .map-embed {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border: 1px solid var(--border);
+      background: var(--void);
+      overflow: hidden;
+      margin-top: 2rem;
+    }
+    .map-embed iframe {
+      width: 100%; height: 100%;
+      border: none;
+      filter: grayscale(1) invert(0.9) sepia(0.2) saturate(0.5);
+    }
+    .map-placeholder {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border: 1px solid var(--border);
+      background: var(--void);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 2rem;
+    }
+    .map-placeholder span:first-child {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: var(--gold);
+      opacity: 0.4;
+    }
+    .map-placeholder span:last-child {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--cream);
+      opacity: 0.3;
+    }
+
+    /* Private dining */
+    .private-dining {
+      background: var(--void);
+      padding: 6rem 3rem;
+    }
+    .private-dining-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    @media (max-width: 900px) {
+      .contact-hero { padding: 7rem 1.5rem 3rem; }
+      .contact-main { grid-template-columns: 1fr; }
+      .contact-form-col { padding: 3rem 1.5rem; border-right: none; border-bottom: 1px solid var(--border); }
+      .contact-info-col { padding: 3rem 1.5rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .private-dining { padding: 4rem 1.5rem; }
+      .private-dining-inner { grid-template-columns: 1fr; gap: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cursor"></div>
+  <div class="cursor-ring"></div>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">The <span>Vault</span> 327</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="restaurant.html">Our Story</a></li>
+      <li><a href="menus.html">Menus</a></li>
+      <li><a href="events.html">What's On</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html#book" class="nav-book">Book a Table</a>
+    <button class="nav-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="contact-hero">
+    <div class="contact-hero-content reveal">
+      <span class="eyebrow">19 High Street, Crowthorne, Berkshire</span>
+      <h1>Find Us &amp; <em class="display-italic">Book</em></h1>
+      <div class="divider"></div>
+      <p class="body-text" style="max-width:500px">Reserve your table online, call us, or just drop in — we'd love to welcome you to The Vault.</p>
+    </div>
+  </div>
+
+  <div class="contact-main" id="book">
+
+    <!-- Booking Form -->
+    <div class="contact-form-col">
+      <div class="reveal">
+        <span class="eyebrow">Reserve a Table</span>
+        <h2>Make a <em class="display-italic">Reservation</em></h2>
+        <div class="divider"></div>
+      </div>
+
+      <form id="booking-form" class="reveal" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fname">First Name *</label>
+            <input type="text" id="fname" name="fname" placeholder="Your first name" required>
+          </div>
+          <div class="form-group">
+            <label for="lname">Last Name *</label>
+            <input type="text" id="lname" name="lname" placeholder="Your last name" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number *</label>
+            <input type="tel" id="phone" name="phone" placeholder="07700 000000" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="date">Preferred Date *</label>
+            <input type="date" id="date" name="date" required>
+          </div>
+          <div class="form-group">
+            <label for="time">Preferred Time *</label>
+            <select id="time" name="time" required>
+              <option value="" disabled selected>Select a time</option>
+              <optgroup label="Lunch">
+                <option>12:00</option>
+                <option>12:30</option>
+                <option>13:00</option>
+                <option>13:30</option>
+                <option>14:00</option>
+                <option>14:30</option>
+              </optgroup>
+              <optgroup label="Afternoon Tea (12–5pm)">
+                <option>12:30</option>
+                <option>14:00</option>
+                <option>15:30</option>
+              </optgroup>
+              <optgroup label="Dinner">
+                <option>17:30</option>
+                <option>18:00</option>
+                <option>18:30</option>
+                <option>19:00</option>
+                <option>19:30</option>
+                <option>20:00</option>
+                <option>20:30</option>
+                <option>21:00</option>
+              </optgroup>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="guests">Number of Guests *</label>
+            <select id="guests" name="guests" required>
+              <option value="" disabled selected>Select guests</option>
+              <option>1</option><option>2</option><option>3</option><option>4</option>
+              <option>5</option><option>6</option><option>7</option><option>8</option>
+              <option>9</option><option>10+</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="occasion">Occasion (optional)</label>
+            <select id="occasion" name="occasion">
+              <option value="" selected>General dining</option>
+              <option>Birthday</option>
+              <option>Anniversary</option>
+              <option>Business lunch</option>
+              <option>Afternoon Tea</option>
+              <option>Sunday Roast</option>
+              <option>Steak Night (Thu)</option>
+              <option>Special occasion</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="dietary">Dietary Requirements or Special Requests</label>
+          <textarea id="dietary" name="dietary" placeholder="Please let us know about any allergies, dietary requirements, or special requests..."></textarea>
+          <p class="form-note">We always endeavour to accommodate all dietary needs. Please also inform your server on arrival.</p>
+        </div>
+        <button type="submit" class="form-submit">Request Reservation</button>
+        <p class="form-note" style="margin-top:1rem">We will confirm your reservation by email or phone within 2 hours during opening hours. For urgent bookings, please call us directly on <a href="tel:01344674106" style="color:var(--gold)">01344 674106</a>.</p>
+      </form>
+
+      <div class="form-success" id="form-success">
+        <h3>Reservation Request Received</h3>
+        <p>Thank you — we'll be in touch within 2 hours to confirm your booking. We look forward to welcoming you to The Vault.</p>
+        <a href="menus.html" class="btn-outline mt-2" style="display:inline-block">Browse Our Menus</a>
+      </div>
+    </div>
+
+    <!-- Info Column -->
+    <div class="contact-info-col">
+      <div class="reveal">
+        <span class="eyebrow">Visit Us</span>
+        <h2 style="font-size:2rem">Find <em class="display-italic">The Vault</em></h2>
+        <div class="divider"></div>
+      </div>
+
+      <div class="info-block reveal">
+        <span class="info-block-title">Address</span>
+        <p>Vault 327<br>19 High Street<br>Crowthorne<br>Berkshire, RG45 7AD</p>
+      </div>
+
+      <div class="info-block reveal">
+        <span class="info-block-title">Contact</span>
+        <p>
+          <a href="tel:01344674106">01344 674106</a><br>
+          <a href="mailto:info@thevault327.co.uk">info@thevault327.co.uk</a>
+        </p>
+      </div>
+
+      <div class="info-block reveal">
+        <span class="info-block-title">Opening Hours</span>
+        <table class="hours-table" style="max-width:320px">
+          <tr class="closed"><td>Monday</td><td>Closed</td></tr>
+          <tr><td>Tuesday</td><td>11:30am – 11:00pm</td></tr>
+          <tr><td>Wednesday</td><td>11:30am – 11:00pm</td></tr>
+          <tr><td>Thursday</td><td>11:30am – 11:00pm</td></tr>
+          <tr><td>Friday</td><td>11:30am – midnight</td></tr>
+          <tr><td>Saturday</td><td>9:30am – midnight</td></tr>
+          <tr><td>Sunday</td><td>9:30am – 10:00pm</td></tr>
+        </table>
+        <p class="form-note mt-1">Kitchen closes approximately 1 hour before closing time. Last food orders: please check when booking.</p>
+      </div>
+
+      <div class="info-block reveal">
+        <span class="info-block-title">Getting Here</span>
+        <p>We are located in the heart of Crowthorne High Street, easily accessible by foot, bus, or car. Street parking is available on the High Street and nearby car parks.</p>
+        <p style="margin-top:0.5rem"><a href="https://maps.google.com/?q=19+High+Street+Crowthorne+RG45+7AD" target="_blank" rel="noopener" style="color:var(--gold)">Open in Google Maps →</a></p>
+      </div>
+
+      <!-- Map -->
+      <div class="map-placeholder">
+        <span>📍</span>
+        <span>19 High Street, Crowthorne RG45 7AD</span>
+      </div>
+      <p class="form-note mt-1">
+        <a href="https://maps.google.com/?q=The+Vault+327,+19+High+Street,+Crowthorne,+RG45+7AD" target="_blank" rel="noopener" style="color:var(--gold)">View on Google Maps →</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Private Dining -->
+  <section class="private-dining">
+    <div class="private-dining-inner">
+      <div class="reveal">
+        <span class="eyebrow">Exclusive Hire</span>
+        <h2>Private <em class="display-italic">Dining</em></h2>
+        <div class="divider"></div>
+        <p class="body-text">Celebrate in style. The Vault 327 is available for private hire for corporate events, birthday celebrations, anniversaries, and special occasions. Our team will work with you to create a bespoke menu and experience that's uniquely yours.</p>
+        <p class="body-text mt-1">For private dining enquiries, group bookings of 8 or more, and exclusive hire availability, please contact us directly.</p>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem">
+          <a href="tel:01344674106" class="btn-primary">Call to Enquire</a>
+          <a href="mailto:info@thevault327.co.uk" class="btn-outline">Email Us</a>
+        </div>
+      </div>
+      <div class="reveal-right">
+        <div style="border:1px solid var(--border-strong);padding:3rem">
+          <span class="eyebrow">Perfect For</span>
+          <ul style="list-style:none;margin-top:1rem">
+            <li style="padding:0.8rem 0;border-bottom:1px solid var(--border);font-size:0.9rem;color:var(--cream);opacity:0.7;display:flex;align-items:center;gap:1rem"><span style="color:var(--gold)">—</span> Birthday celebrations</li>
+            <li style="padding:0.8rem 0;border-bottom:1px solid var(--border);font-size:0.9rem;color:var(--cream);opacity:0.7;display:flex;align-items:center;gap:1rem"><span style="color:var(--gold)">—</span> Anniversary dinners</li>
+            <li style="padding:0.8rem 0;border-bottom:1px solid var(--border);font-size:0.9rem;color:var(--cream);opacity:0.7;display:flex;align-items:center;gap:1rem"><span style="color:var(--gold)">—</span> Corporate events &amp; lunches</li>
+            <li style="padding:0.8rem 0;border-bottom:1px solid var(--border);font-size:0.9rem;color:var(--cream);opacity:0.7;display:flex;align-items:center;gap:1rem"><span style="color:var(--gold)">—</span> Hen &amp; stag parties</li>
+            <li style="padding:0.8rem 0;border-bottom:1px solid var(--border);font-size:0.9rem;color:var(--cream);opacity:0.7;display:flex;align-items:center;gap:1rem"><span style="color:var(--gold)">—</span> Champagne receptions</li>
+            <li style="padding:0.8rem 0;font-size:0.9rem;color:var(--cream);opacity:0.7;display:flex;align-items:center;gap:1rem"><span style="color:var(--gold)">—</span> Bespoke tasting evenings</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-brand-name">The Vault 327</div>
+        <p class="footer-tagline">Where flavour, creativity, and atmosphere collide — inside Crowthorne's historic bank building.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/the_vault327/" aria-label="Instagram" target="_blank" rel="noopener">IG</a>
+          <a href="https://www.facebook.com/p/The-Vault-327-61555501597616/" aria-label="Facebook" target="_blank" rel="noopener">FB</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Explore</div>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="restaurant.html">Our Story</a></li>
+          <li><a href="menus.html">Menus</a></li>
+          <li><a href="events.html">What's On</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Opening Hours</div>
+        <table class="hours-table">
+          <tr class="closed"><td>Monday</td><td>Closed</td></tr>
+          <tr><td>Tue – Thu</td><td>11:30 – 23:00</td></tr>
+          <tr><td>Friday</td><td>11:30 – 00:00</td></tr>
+          <tr><td>Saturday</td><td>9:30 – 00:00</td></tr>
+          <tr><td>Sunday</td><td>9:30 – 22:00</td></tr>
+        </table>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Find Us</div>
+        <p>19 High Street<br>Crowthorne<br>Berkshire, RG45 7AD</p>
+        <a href="tel:01344674106">01344 674106</a>
+        <a href="mailto:info@thevault327.co.uk">info@thevault327.co.uk</a>
+        <div style="margin-top:1rem">
+          <a href="cookie-policy.html" style="font-size:0.8rem;color:var(--gold);opacity:0.7;display:block;margin-bottom:0.3rem">Cookie Policy</a>
+          <a href="privacy-policy.html" style="font-size:0.8rem;color:var(--gold);opacity:0.7;">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 The Vault 327 Ltd. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="cookie-policy.html">Cookies</a>
+        <a href="privacy-policy.html">Privacy</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent">
+    <p>We use cookies to improve your experience. See our <a href="cookie-policy.html">Cookie Policy</a> and <a href="privacy-policy.html">Privacy Policy</a>.</p>
+    <div class="cookie-actions">
+      <button class="btn-accept" id="cookie-accept">Accept All</button>
+      <button class="btn-decline" id="cookie-decline">Essential Only</button>
+    </div>
+  </div>
+
+  <script src="public/script.js"></script>
+  <script>
+    // Set min date to today
+    const dateInput = document.getElementById('date');
+    if (dateInput) {
+      const today = new Date().toISOString().split('T')[0];
+      dateInput.min = today;
+    }
+
+    // Form submit (frontend demo — integrate with your booking system)
+    const form = document.getElementById('booking-form');
+    const success = document.getElementById('form-success');
+    if (form) {
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        // Validate
+        const required = form.querySelectorAll('[required]');
+        let valid = true;
+        required.forEach(el => {
+          if (!el.value.trim()) { el.style.borderColor = '#c0392b'; valid = false; }
+          else { el.style.borderColor = ''; }
+        });
+        if (!valid) return;
+        // Show success
+        form.style.display = 'none';
+        success.classList.add('show');
+      });
+    }
+  </script>
+</body>
+</html>

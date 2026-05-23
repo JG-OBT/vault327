@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Vault 327 — Crowthorne | Restaurant, Bar & Events</title>
+  <meta name="description" content="The Vault 327 is Crowthorne's most exciting dining destination, set inside a historic bank. Fusion British, Mediterranean & Asian cuisine, craft cocktails, Sunday roasts, and live DJ nights.">
+  <meta property="og:title" content="The Vault 327 — Crowthorne">
+  <meta property="og:description" content="Bold flavour, creative cooking, vibrant atmosphere in the heart of Crowthorne, Berkshire.">
+  <meta property="og:image" content="public/images/og-image.jpg">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="public/favicon.svg">
+  <link rel="stylesheet" href="public/style.css">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <div class="cursor"></div>
+  <div class="cursor-ring"></div>
+
+  <!-- ── Navigation ──────────────────────────────────────── -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">The <span>Vault</span> 327</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="restaurant.html">Our Story</a></li>
+      <li><a href="menus.html">Menus</a></li>
+      <li><a href="events.html">What's On</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html#book" class="nav-book">Book a Table</a>
+    <button class="nav-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ── Hero ────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-bg hero-parallax">
+      <img src="public/images/hero-bg.jpg" alt="The Vault 327 interior" onerror="this.style.display='none'">
+    </div>
+    <div class="hero-overlay"></div>
+
+    <!-- Animated vault door rings -->
+    <div class="vault-rings" aria-hidden="true">
+      <div class="vr vr-1"></div>
+      <div class="vr vr-2"></div>
+      <div class="vr vr-3"></div>
+      <div class="vault-bolt vb-1"></div>
+      <div class="vault-bolt vb-2"></div>
+      <div class="vault-bolt vb-3"></div>
+      <div class="vault-bolt vb-4"></div>
+    </div>
+
+    <div class="hero-content">
+      <p class="eyebrow hero-eyebrow">Crowthorne, Berkshire · Est. 2024</p>
+      <h1 class="hero-title">
+        Where flavour,
+        <em class="display-italic">creativity</em>
+        &amp; atmosphere collide
+      </h1>
+      <div class="divider"></div>
+      <p class="hero-sub">A unique dining experience inside Crowthorne's historic bank building. British classics meet Mediterranean warmth and bold Asian inspiration.</p>
+      <div class="hero-actions">
+        <a href="contact.html#book" class="btn-primary">Reserve a Table</a>
+        <a href="menus.html" class="btn-outline">Explore Menus</a>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator" aria-hidden="true">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ── Stats Bar ────────────────────────────────────────── -->
+  <div class="stats-bar">
+    <div class="stat">
+      <span class="stat-num" data-count="8">0</span>
+      <span class="stat-label">Menus to Explore</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <span class="stat-num" data-count="6">0</span>
+      <span class="stat-label">Days a Week</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <span class="stat-num" data-count="15" data-suffix="%">0</span>
+      <span class="stat-label">NHS Discount</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <span class="stat-num">1</span>
+      <span class="stat-label">Unforgettable Venue</span>
+    </div>
+  </div>
+
+  <!-- ── Intro / Our Story ─────────────────────────────────── -->
+  <section class="intro-section">
+    <div class="container">
+      <div class="intro-grid">
+        <div class="intro-text reveal-left">
+          <span class="eyebrow">Our Story</span>
+          <h2>Born inside a <em class="display-italic">bank vault</em></h2>
+          <div class="divider"></div>
+          <p class="body-text">The owners dreamed of opening a restaurant, but never imagined it would be inside an old bank. When they discovered this historic building on Crowthorne High Street — with its towering columns and vault door still standing strong — they knew it was fate.</p>
+          <p class="body-text mt-1">Inside, the original bank vault now protects something far more valuable: a kitchen alive with creativity. The thick walls, once lined with safety deposit boxes, now resonate with laughter, clinking glasses, and the sizzle of Head Chef Mo's extraordinary dishes.</p>
+          <a href="restaurant.html" class="btn-outline mt-2" style="display:inline-block">Discover Our Story</a>
+        </div>
+        <div class="intro-image reveal-right">
+          <div class="img-frame">
+            <img src="public/images/restaurant-1.jpg" alt="The Vault restaurant interior" onerror="this.parentElement.classList.add('img-placeholder')">
+            <div class="img-deco"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Menu Showcase ─────────────────────────────────────── -->
+  <section class="menus-section">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <span class="eyebrow">Culinary Craftsmanship</span>
+        <h2>Curated <em class="display-italic">menus</em> for every moment</h2>
+        <div class="divider divider-center"></div>
+        <p class="body-text" style="max-width:560px;margin:0 auto;">From leisurely lunches to indulgent Sunday roasts, every menu is crafted by Head Chef Mo with seasonal ingredients and a passion for bold, surprising flavour.</p>
+      </div>
+      <div class="menu-grid stagger">
+        <a href="menus.html#alacarte" class="menu-card">
+          <div class="menu-card-img">
+            <img src="public/images/food-1.jpg" alt="À La Carte" onerror="this.parentElement.classList.add('img-placeholder')">
+          </div>
+          <div class="menu-card-body">
+            <span class="menu-card-tag">Lunch · Dinner</span>
+            <h3>À La Carte</h3>
+            <p>British staples, Mediterranean classics, bold Asian flavours — every dish a unique expression.</p>
+            <span class="menu-card-arrow">Explore →</span>
+          </div>
+        </a>
+        <a href="menus.html#sunday" class="menu-card menu-card-featured">
+          <div class="menu-card-img">
+            <img src="public/images/food-5.jpg" alt="Sunday Roast" onerror="this.parentElement.classList.add('img-placeholder')">
+          </div>
+          <div class="menu-card-body">
+            <span class="menu-card-tag">Every Sunday</span>
+            <h3>Sunday Roast</h3>
+            <p>Luxury roasts with tender cuts, rich velvety gravies, and crisp golden potatoes. Pure indulgence.</p>
+            <span class="menu-card-arrow">Explore →</span>
+          </div>
+        </a>
+        <a href="menus.html#brunch" class="menu-card">
+          <div class="menu-card-img">
+            <img src="public/images/food-4.jpg" alt="Weekend Brunch" onerror="this.parentElement.classList.add('img-placeholder')">
+          </div>
+          <div class="menu-card-body">
+            <span class="menu-card-tag">Sat 9:30am–3pm · Sun 9:30–12pm</span>
+            <h3>Weekend Brunch</h3>
+            <p>Comforting classics to indulgent favourites. Set the tone for an exceptional day ahead.</p>
+            <span class="menu-card-arrow">Explore →</span>
+          </div>
+        </a>
+        <a href="menus.html#tea" class="menu-card">
+          <div class="menu-card-img">
+            <img src="public/images/afternoon-tea.jpg" alt="Afternoon Tea" onerror="this.parentElement.classList.add('img-placeholder')">
+          </div>
+          <div class="menu-card-body">
+            <span class="menu-card-tag">Daily · 12pm – 5pm</span>
+            <h3>Afternoon Tea</h3>
+            <p>Tea. Treats. Time well spent. Savoury brioche buns to freshly baked scones — a true ritual.</p>
+            <span class="menu-card-arrow">Explore →</span>
+          </div>
+        </a>
+        <a href="menus.html#desserts" class="menu-card">
+          <div class="menu-card-img">
+            <img src="public/images/food-3.jpg" alt="Desserts" onerror="this.parentElement.classList.add('img-placeholder')">
+          </div>
+          <div class="menu-card-body">
+            <span class="menu-card-tag">Always Available</span>
+            <h3>Desserts</h3>
+            <p>Sticky Toffee Pudding, Spiced Apple Tart, Affogato, Artisan Ice Cream Trilogy. Finish on a high.</p>
+            <span class="menu-card-arrow">Explore →</span>
+          </div>
+        </a>
+        <a href="menus.html#drinks" class="menu-card">
+          <div class="menu-card-img">
+            <img src="public/images/cocktails.jpg" alt="Drinks & Cocktails" onerror="this.parentElement.classList.add('img-placeholder')">
+          </div>
+          <div class="menu-card-body">
+            <span class="menu-card-tag">Bar · All Day</span>
+            <h3>Cocktails & Drinks</h3>
+            <p>Expert mixologists, craft cocktails, curated wines, spirits, and elegant non-alcoholic options.</p>
+            <span class="menu-card-arrow">Explore →</span>
+          </div>
+        </a>
+      </div>
+      <div class="text-center mt-3">
+        <a href="menus.html" class="btn-primary">View All Menus</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── What's On ────────────────────────────────────────── -->
+  <section class="events-section">
+    <div class="container">
+      <div class="events-header reveal">
+        <span class="eyebrow">Events & Offers</span>
+        <h2>There's always a reason <em class="display-italic">to visit</em></h2>
+      </div>
+      <div class="events-row stagger">
+        <div class="event-item">
+          <div class="event-day">TUE</div>
+          <div class="event-info">
+            <h3>2 for 1 Cocktails</h3>
+            <p>Every Tuesday from 2pm – 8pm. Our mixologists pair classic and contemporary — don't be late!</p>
+          </div>
+          <div class="event-deco">2:1</div>
+        </div>
+        <div class="event-item">
+          <div class="event-day">THU</div>
+          <div class="event-info">
+            <h3>Steak & Wine Night</h3>
+            <p>Order any two steaks and receive a complimentary bottle of house wine. The perfect Thursday treat.</p>
+          </div>
+          <div class="event-deco">🍷</div>
+        </div>
+        <div class="event-item">
+          <div class="event-day">DAILY</div>
+          <div class="event-info">
+            <h3>Afternoon Tea</h3>
+            <p>Served daily 12pm – 5pm. Smoked salmon brioche, freshly baked scones, and seasonal sweet treats.</p>
+          </div>
+          <div class="event-deco">☕</div>
+        </div>
+        <div class="event-item">
+          <div class="event-day">FRI/SAT</div>
+          <div class="event-info">
+            <h3>Live DJ Nights</h3>
+            <p>The weekend arrives with a soundtrack. Follow our socials to find out when the DJ takes the floor.</p>
+          </div>
+          <div class="event-deco">♪</div>
+        </div>
+      </div>
+      <div class="mt-3 reveal">
+        <a href="events.html" class="btn-outline">See All Events</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── NHS Banner ───────────────────────────────────────── -->
+  <div class="nhs-band reveal">
+    <div class="container">
+      <div class="nhs-inner">
+        <div class="nhs-left">
+          <span class="eyebrow" style="margin-bottom:0.4rem">Supporting Our Heroes</span>
+          <h3>NHS 15% Discount — every week</h3>
+          <p class="body-text">Show your Blue Light Card Tuesday to Sunday, 9am–5pm, and enjoy 15% off food orders. A small thank you for everything you do.</p>
+        </div>
+        <div class="nhs-badge">15%<small>OFF</small></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Lunch Promo ──────────────────────────────────────── -->
+  <section class="lunch-promo reveal">
+    <div class="container">
+      <div class="lunch-inner">
+        <div class="lunch-text">
+          <span class="eyebrow">Lunchtime at The Vault</span>
+          <h2>Two courses for <em class="display-italic">£18.95</em></h2>
+          <div class="divider"></div>
+          <p class="body-text">Available Tuesday to Friday. Fresh, vibrant dishes inspired by British classics, Mediterranean comfort, and subtle Asian flair — elevated everyday dining at exceptional value.</p>
+          <a href="menus.html#lunch" class="btn-primary mt-2" style="display:inline-block">View Lunch Menu</a>
+        </div>
+        <div class="lunch-visual" aria-hidden="true">
+          <div class="price-circle">
+            <span class="price-main">£18.95</span>
+            <span class="price-sub">2 Courses</span>
+          </div>
+          <div class="deco-dots"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Gallery Strip ────────────────────────────────────── -->
+  <section class="gallery-strip">
+    <div class="gallery-strip-title reveal">
+      <span class="eyebrow">Gallery</span>
+      <h2>Every visit, <em class="display-italic">a memory</em></h2>
+    </div>
+    <div class="gallery-scroll-track">
+      <div class="gallery-scroll-inner">
+        <img src="public/images/gallery-1.jpg" alt="Gallery 1" onerror="this.parentElement.parentElement.classList.add('no-images')">
+        <img src="public/images/gallery-2.jpg" alt="Gallery 2">
+        <img src="public/images/gallery-3.jpg" alt="Gallery 3">
+        <img src="public/images/gallery-4.jpg" alt="Gallery 4">
+        <img src="public/images/food-1.jpg" alt="Food">
+        <img src="public/images/food-2.jpg" alt="Food 2">
+        <!-- Duplicates for seamless loop -->
+        <img src="public/images/gallery-1.jpg" alt="Gallery 1" aria-hidden="true">
+        <img src="public/images/gallery-2.jpg" alt="Gallery 2" aria-hidden="true">
+        <img src="public/images/gallery-3.jpg" alt="Gallery 3" aria-hidden="true">
+        <img src="public/images/gallery-4.jpg" alt="Gallery 4" aria-hidden="true">
+      </div>
+    </div>
+    <div class="text-center mt-3 reveal" style="padding:0 1.5rem">
+      <a href="gallery.html" class="btn-outline">View Full Gallery</a>
+    </div>
+  </section>
+
+  <!-- ── Book CTA ─────────────────────────────────────────── -->
+  <section class="book-cta reveal">
+    <div class="container text-center">
+      <span class="eyebrow">Reserve Your Table</span>
+      <h2>Ready to discover <em class="display-italic">The Vault?</em></h2>
+      <div class="divider divider-center"></div>
+      <p class="body-text" style="max-width:500px;margin:0 auto 2.5rem;">Whether it's a long lunch, intimate dinner, or weekend celebration — Vault 327 is ready to welcome you.</p>
+      <div class="cta-actions">
+        <a href="contact.html#book" class="btn-primary">Book a Table</a>
+        <a href="tel:01344674106" class="btn-outline">Call 01344 674106</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ───────────────────────────────────────────── -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-brand-name">The Vault 327</div>
+        <p class="footer-tagline">Where flavour, creativity, and atmosphere collide — inside Crowthorne's historic bank building.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/the_vault327/" aria-label="Instagram" target="_blank" rel="noopener">IG</a>
+          <a href="https://www.facebook.com/p/The-Vault-327-61555501597616/" aria-label="Facebook" target="_blank" rel="noopener">FB</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Explore</div>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="restaurant.html">Our Story</a></li>
+          <li><a href="menus.html">Menus</a></li>
+          <li><a href="events.html">What's On</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Opening Hours</div>
+        <table class="hours-table">
+          <tr class="closed"><td>Monday</td><td>Closed</td></tr>
+          <tr><td>Tue – Thu</td><td>11:30 – 23:00</td></tr>
+          <tr><td>Friday</td><td>11:30 – 00:00</td></tr>
+          <tr><td>Saturday</td><td>9:30 – 00:00</td></tr>
+          <tr><td>Sunday</td><td>9:30 – 22:00</td></tr>
+        </table>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Find Us</div>
+        <p>19 High Street<br>Crowthorne<br>Berkshire, RG45 7AD</p>
+        <a href="tel:01344674106">01344 674106</a>
+        <a href="mailto:info@thevault327.co.uk">info@thevault327.co.uk</a>
+        <div style="margin-top:1rem">
+          <a href="cookie-policy.html" style="font-size:0.8rem;color:var(--gold);opacity:0.7;display:block;margin-bottom:0.3rem">Cookie Policy</a>
+          <a href="privacy-policy.html" style="font-size:0.8rem;color:var(--gold);opacity:0.7;">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 The Vault 327 Ltd. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="cookie-policy.html">Cookies</a>
+        <a href="privacy-policy.html">Privacy</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── Cookie Banner ────────────────────────────────────── -->
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent">
+    <p>We use cookies to improve your experience and analyse site traffic. See our <a href="cookie-policy.html">Cookie Policy</a> and <a href="privacy-policy.html">Privacy Policy</a> for details.</p>
+    <div class="cookie-actions">
+      <button class="btn-accept" id="cookie-accept">Accept All</button>
+      <button class="btn-decline" id="cookie-decline">Essential Only</button>
+    </div>
+  </div>
+
+  <script src="public/script.js"></script>
+  <script>
+    // Initialize data-count counters
+    document.querySelectorAll('[data-count]').forEach(el => {
+      const target = parseInt(el.dataset.count);
+      const suffix = el.dataset.suffix || '';
+      const observer = new IntersectionObserver(entries => {
+        if (!entries[0].isIntersecting) return;
+        let current = 0;
+        const step = target / 60;
+        const timer = setInterval(() => {
+          current = Math.min(current + step, target);
+          el.textContent = Math.floor(current) + suffix;
+          if (current >= target) clearInterval(timer);
+        }, 16);
+        observer.unobserve(el);
+      }, { threshold: 0.5 });
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
